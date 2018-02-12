@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/">Home</a>
+로그인 페이지 작업 중
+{% if user.is_authenticated %}
+    <p>{{user.username  }} 님 안녕하세요.</p>
+<a href="{% url 'password_change' %}">비밀번호 변경</a>
+<a href="{% url 'logout' %}">로그아웃</a>
+{% else %}
+<a href="{% url 'login' %}">로그인</a>
+<a href="{% url 'register' %}">뢰원가입</a>
+{% endif %}
+
+{% block content %}서브페이지 보이는 영역{% endblock %}
+</body>
+</html>
